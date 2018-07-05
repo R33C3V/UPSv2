@@ -1,0 +1,30 @@
+<style>
+    /*html, body {
+        background: transparent !important;
+        color: transparent !important;
+        background-color: transparent !important;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        -webkit-backface-visibility: visible;
+    }*/
+    #div_upsap_access_points7172837 {
+        -webkit-overflow-scrolling: touch !important;
+        overflow: auto !important;
+    }
+</style>
+<script type="text/javascript">
+    var rvaPopupApEdit = '<?php echo Mage::getStoreConfig('carriers/upsap/search_ui', Mage::app()->getStore()->getStoreId())==0?'false':'true'; ?>';
+    <?php if(strpos(Mage::helper('core/url')->getCurrentUrl(), 'https') !== FALSE){ ?>
+    var isHttps = 'https';
+    var rvaBaseUrl = "https:<?php echo str_replace(array('http:', 'https:'), array('', ''), $this->getUrl('/')); ?>";
+    var rvaPopupApCSS = <?php if(Mage::getStoreConfig('carriers/upsap/css', Mage::app()->getStore()->getStoreId()) != ''){ ?>encodeURIComponent("<?php echo str_replace(array('http:', 'https:'), array('', ''), Mage::getStoreConfig('carriers/upsap/css', Mage::app()->getStore()->getStoreId())); ?>");
+    <?php } else { ?>'';<?php } ?>
+    <?php } else { ?>
+    var isHttps = 'http';
+    var rvaBaseUrl = "<?php echo $this->getUrl('/'); ?>";
+    var rvaPopupApCSS = <?php if(Mage::getStoreConfig('carriers/upsap/css', Mage::app()->getStore()->getStoreId()) != ''){ ?>encodeURIComponent("<?php echo Mage::getStoreConfig('carriers/upsap/css', Mage::app()->getStore()->getStoreId()); ?>");
+    <?php } else { ?>'';<?php } ?>
+    <?php } ?>
+</script>
